@@ -821,16 +821,16 @@ let obj = {
  generated docs file, do not edit by hand, see xtask/docgen 
 -->
 <h1><a class="header" href="#no-async-promise-executor" id="no-async-promise-executor">no-async-promise-executor</a></h1>
-<p>Disallow async functions as promise executors. </p>
-<p>Promise executors are special functions inside <code>new Promise()</code> constructors which take a <code>resolve</code> and 
-<code>reject</code> parameter to resolve or reject the promise. The function is a normal function therefore it could be 
-an async function. However this is usually wrong because: 
+<p>Disallow async functions as promise executors.</p>
+<p>Promise executors are special functions inside <code>new Promise()</code> constructors which take a <code>resolve</code> and
+<code>reject</code> parameter to resolve or reject the promise. The function is a normal function therefore it could be
+an async function. However this is usually wrong because:
 - Any errors thrown by the function are lost.
-- It usually means the new promise is unnecessary. </p>
+- It usually means the new promise is unnecessary.</p>
 <h2><a class="header" href="#incorrect-code-examples-2" id="incorrect-code-examples-2">Incorrect code examples</a></h2>
 <pre><code class="language-js">let foo = new Promise(async (resolve, reject) =&gt; {
     doSomething(bar, (err, res)) =&gt; {
-       /* */ 
+       /* */
     });
 });
 </code></pre>
@@ -839,7 +839,7 @@ an async function. However this is usually wrong because:
 });
 </code></pre>
 <h2><a class="header" href="#correct-code-examples-2" id="correct-code-examples-2">Correct code examples</a></h2>
-<p>Use a normal non-async function. </p>
+<p>Use a normal non-async function.</p>
 <pre><code class="language-js">let foo = new Promise(function(resolve, reject) =&gt; {
     /* */
 })
@@ -1602,7 +1602,7 @@ may cause many issues.</p>
 <p>Disallow direct use of <code>Object.prototype</code> builtins directly.</p>
 <p>ES 5.1 added <code>Object.create</code> which allows creation of object with a custom prototype. This
 pattern is frequently used for objects used as Maps. However this pattern can lead to errors
-if something else relies on prototype properties/methods. </p>
+if something else relies on prototype properties/methods.</p>
 <p>Moreover, the methods could be shadowed, this can lead to random bugs and denial of service
 vulnerabilities. For example, calling <code>hasOwnProperty</code> directly on parsed json could lead to vulnerabilities.
 Instead, you should use get the method directly from the object using <code>Object.prototype.prop.call(item, args)</code>.</p>
@@ -1881,8 +1881,8 @@ let bar = [foo,, bar];
  generated docs file, do not edit by hand, see xtask/docgen 
 -->
 <h1><a class="header" href="#no-unexpected-multiline" id="no-unexpected-multiline">no-unexpected-multiline</a></h1>
-<p>Disallow confusing newlines in expressions. </p>
-<p>JavaScript has automatic semicolon insertion, where newlines end statements, however, 
+<p>Disallow confusing newlines in expressions.</p>
+<p>JavaScript has automatic semicolon insertion, where newlines end statements, however,
 expressions can often span across newlines, therefore it can become a bit confusing at times
 and ambiguous. Take the following as an example:</p>
 <pre><code class="language-js">let foo = bar

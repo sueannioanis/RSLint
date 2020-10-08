@@ -166,7 +166,7 @@
 <p>Disallow direct use of <code>Object.prototype</code> builtins directly.</p>
 <p>ES 5.1 added <code>Object.create</code> which allows creation of object with a custom prototype. This
 pattern is frequently used for objects used as Maps. However this pattern can lead to errors
-if something else relies on prototype properties/methods. </p>
+if something else relies on prototype properties/methods.</p>
 <p>Moreover, the methods could be shadowed, this can lead to random bugs and denial of service
 vulnerabilities. For example, calling <code>hasOwnProperty</code> directly on parsed json could lead to vulnerabilities.
 Instead, you should use get the method directly from the object using <code>Object.prototype.prop.call(item, args)</code>.</p>
